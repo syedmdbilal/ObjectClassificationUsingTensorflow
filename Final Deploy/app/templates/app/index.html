@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBJECT CLASSIFICATION</title>
+    <style>
+        body{
+            background:url("/static/img1.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+        .container{
+            width: 400px;
+            height: 200px;
+            border-style: solid;
+            background-color: rgb(143, 141, 138, 0.3);
+        }
+        form{
+            margin-top: 50px;
+            margin-left: 40px;
+        }
+        </style>
+</head>
+<body>
+    <center><h1 style="color: red; background-color: aqua;">OBJECT CLASSIFICATION USING TENSORFLOW</h1><br><br><br>
+        <div class="container">
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p style="margin-right: 170px;">*  This field is requied</p>
+            {{ form.as_p }}
+            <input type="submit" Value='UPLOAD' style="margin-right: 230px;">
+        </form><br><br><br><br>
+        </div>
+    </center>
+    {% if obj %}
+    <center>
+        <h2 style="width:150px; color: cyan;background-color: black; text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.7), -2px -2px 4px rgba(0, 255, 0, 0.7), 2px -2px 4px rgba(0, 0, 255, 0.7), -2px 2px 4px rgba(255, 255, 0, 0.7);">{{ predict | upper }}</h2>
+        <img src="{{ obj.image.url }}" height="250" width="250">
+    </center>
+    {% endif %}
+</body>
+</html>
